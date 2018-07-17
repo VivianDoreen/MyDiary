@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0' http-equiv="Content-Type" content="text/html; charset=utf-8"  />
+    <meta name="description" content="free online diary"/>
+    <meta name="keywords" content="best online diary, online diary app, online diary google, online diaries to read, online journal blog, free online journals, my diary blog, my diary essay, my diary facebook, my diary book, my diary quotes"/>
+    <meta name="author" content="Nabulo Vivian"/>
+    <title>MyDiary | add_entry</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" href="./img/imgfavcon.png">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight">My</span>Diary</h1>
+        </div>
+        <div class="logout">
+            <a href="index.html">logout</a>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="view_entry.html">View Entry&nbsp;&nbsp;/&nbsp;&nbsp;Entries</a></li>
+            <li class="current"><a href="add_entry.html">Add Entry</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section id="register">
+      <div class="container">
+          <form action = '#' method = 'post' class = 'form1'>
+              <h2>Add Your Entry Here</h2>
+              <div class = 'form_row'>
+            		<label for = "date">Date</label>
+            		<input type = 'date' name = 'date' id = 'date'/>
+            	</div>
+              <div class = 'form_row'>
+            		<label for = 'title'>Topic</label>
+            		<input type = 'text' name = 'title' id = 'title'>
+            	</div>
+              <div>
+                <label>Message</label></br>
+                <textarea name="name" rows="8" cols="57" placeholder="message"></textarea>
+              </div>
+              <div class="reminder">
+                <label>Set Reminder</label>
+                <input type="checkbox" name="set_reminder" value="checked">
+              </div>
+            	<button type="submit" name="button" class="button1">Login</button>
+          </form>
+    </section>
+
+    <footer>
+      <p>MyDiary, copyright &copy; 2018</p>
+    </footer>
+  </body>
+</html>
