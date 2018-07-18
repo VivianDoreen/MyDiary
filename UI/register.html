@@ -40,14 +40,17 @@
             	<div class = 'form_row'>
             	   <label for = "fullName">Full Name</label>
             	   <input type = 'text' name = 'fullName' id = 'fullName'/>
+                 <div id="fullName_error" class="val_error"></div>
             	</div>
               <div class = 'form_row'>
-            		<label for = "userName">UserName</label>
+            		<label for = "userName">userName</label>
             		<input type = 'text' name = 'userName' id = 'userName'/>
+                <div id="userName_error" class="val_error"></div>
             	</div>
             	<div class = 'form_row'>
             		<label for = 'email'>Email</label>
             		<input type = 'email' name = 'email' id = 'email' placeholder = 'nabulo@gmail.com'>
+                <div id="email_error" class="val_error"></div>
             	</div>
               <div class = 'form_row'>
             		<label for = 'password'>Password</label>
@@ -56,6 +59,7 @@
               <div class = 'form_row'>
             		<label for = 'c_password'>Confirm Password</label>
             		<input type = 'c_password' name = 'c_password' id = 'c_password'>
+                <div id="c_password_error" class="val_error"></div>
             	</div>
             	<button type="submit" name="button" class="button1">Register</button>
             </form>
@@ -66,3 +70,100 @@
     </footer>
   </body>
 </html>
+<!--Adding javascript-->
+<script type="text/javascript">
+  //Getting all input text objects
+  var fullName = document.forms["vform"]["fullName"];
+  var userName = document.forms["vform"]["userName"];
+  var email = document.forms["vform"]["email"];
+  var password = document.forms["vform"]["password"];
+  var c_password = document.forms["vform"]["c_password"];
+
+  //Getting all error_display messages
+  var fullName_error = document.getElementById('fullName_error');
+  var userName_error = document.getElementById('userName_error');
+  var email_error = document.getElementById('email_error');
+  var c_password_error = document.getElementById('c_password_error');
+
+  //Setting all eventListners
+  fullName.addEventListener("blur", fullNameVerify, true);
+  userName.addEventListener("blur", userNameVerify, true);
+  email.addEventListener("blur", emailVerify, true);
+  password.addEventListener("blur", passwordVerify, true);
+
+  //Validation function
+  function validate(){
+    //userName Validation
+    if (fullName.value == "") {
+      fullName.style.border = "1px solid red";
+      fullName_error.textContent = "User Name is required here";
+      fullName.focus();
+      return false;
+    }
+
+    //userName Validation
+    if (userName.value == "") {
+      userName.style.border = "1px solid red";
+      userName_error.textContent = "Name is required here";
+      userName.focus();
+      return false;
+    }
+
+    //Email Validation
+    if (email.value == "") {
+      email.style.border = "1px solid #f00";
+      email_error.textContent = "Email is required here";
+      email.focus();
+      return false;
+    }
+
+    //Password Validation
+    if (password.value == "") {
+      password.style.border = "1px solid red";
+      c_password_error.textContent = "Password is required here";
+      password.focus();
+      return false;
+    }
+    //Check if the two password match
+    if (password.value != c_password.value) {
+      password.style.border = "1px solid red";
+      c_password.style.border = "1px solid red";
+      c_password_error.textContent = "Password do not much";
+      c_password.focus();
+      return false;
+    }
+  }
+
+  //Eventhandler functions
+  function fullNameVerify(){
+    if (fullName.value !="") {
+      fullName.style.border = "1px solid #7c7575";
+      fullName_error.innerHTML = "";
+      return true;
+    }
+  }
+
+  function userNameVerify(){
+    if (userName.value !="") {
+      userName.style.border = "1px solid #7c7575";
+      userName_error.innerHTML = "";
+      return true;
+    }
+  }
+
+  function emailVerify(){
+    if (email.value !="") {
+      email.style.border = "1px solid #7c7575";
+      email_error.innerHTML = "";
+      return true;
+    }
+  }
+
+    function passwordVerify(){
+      if (password.value !="") {
+        password.style.border = "1px solid #7c7575";
+        password_error.innerHTML = "";
+        return true;
+      }
+    }
+</script>
