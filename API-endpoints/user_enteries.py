@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request
 #Define your app using flask
 app = Flask(__name__)
 
+# Entry Lists
 userEntries = [{'entryId': 1,
                 'title':'Meeting',
                 'content': 'TuesdayMeetttttttting',
